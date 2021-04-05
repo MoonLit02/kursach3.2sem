@@ -19,7 +19,7 @@ namespace kursach3._2sem
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+//asdasd
         }
     }
 }
