@@ -24,7 +24,7 @@ namespace kursach3._2sem
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+//ZDAROVAQ
         }
 
         private void Form1_Load(object sender, EventArgs e)
