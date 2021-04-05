@@ -19,7 +19,17 @@ namespace kursach3._2sem
 
         private void label2_Click(object sender, EventArgs e)
         {
-//asdasd
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
