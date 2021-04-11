@@ -214,6 +214,7 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "Изменить";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -266,6 +267,7 @@
             this.Name = "Form2";
             this.Text = "Рабочее окно";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
