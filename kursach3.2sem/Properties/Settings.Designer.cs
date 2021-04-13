@@ -33,5 +33,15 @@ namespace kursach3._2sem.Properties {
                 return ((string)(this["BDConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\BD.mdb")]
+        public string BDConnectionString1 {
+            get {
+                return ((string)(this["BDConnectionString1"]));
+            }
+        }
     }
 }
