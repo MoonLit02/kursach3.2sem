@@ -14,7 +14,7 @@ namespace kursach3._2sem
     public partial class Form1 : Form
     {
 
-        string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\crax0\source\repos\kursach3.2sem\kursach3.2sem\bin\Debug\BD.mdb";
+        string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=BD.mdb";
         OleDbConnection myConnection;
         public Form1()
         {
