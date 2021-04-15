@@ -156,6 +156,12 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Line",
+            "Bus",
+            "Users",
+            "Conductor",
+            "Route"});
             this.comboBox2.Location = new System.Drawing.Point(131, 325);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(221, 21);

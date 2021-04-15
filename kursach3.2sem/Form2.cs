@@ -89,7 +89,7 @@ namespace kursach3._2sem
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3() ;
+            Form3 form3 = new Form3(comboBox2.Text) ;
             form3.Show();
         }
         /*string query = "INSERT INTO Bus (name, role, salary) VALUES ('Михаил', 'Водитель', 20000)";

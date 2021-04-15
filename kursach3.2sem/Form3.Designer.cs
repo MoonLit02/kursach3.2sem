@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lineBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bDDataSet1 = new kursach3._2sem.BDDataSet1();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -52,7 +54,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.bDDataSet = new kursach3._2sem.BDDataSet();
             this.bDDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bDDataSet1 = new kursach3._2sem.BDDataSet1();
             this.bDDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.busBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.busTableAdapter = new kursach3._2sem.BDDataSet1TableAdapters.BusTableAdapter();
@@ -64,19 +65,13 @@
             this.usersTableAdapter = new kursach3._2sem.BDDataSet1TableAdapters.UsersTableAdapter();
             this.busBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bDDataSet1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.lineBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.busDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conductorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeStartDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeEndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countTicketDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lineBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bDDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bDDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bDDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.busBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineBindingSource)).BeginInit();
@@ -84,27 +79,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.busBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDDataSet1BindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lineBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.busDataGridViewTextBoxColumn,
-            this.conductorDataGridViewTextBoxColumn,
-            this.timeStartDataGridViewTextBoxColumn,
-            this.timeEndDataGridViewTextBoxColumn,
-            this.countTicketDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.lineBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(12, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1031, 433);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // lineBindingSource1
+            // 
+            this.lineBindingSource1.DataMember = "Line";
+            this.lineBindingSource1.DataSource = this.bDDataSet1;
+            // 
+            // bDDataSet1
+            // 
+            this.bDDataSet1.DataSetName = "BDDataSet1";
+            this.bDDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigator1
             // 
@@ -231,6 +226,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -243,6 +239,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -255,6 +252,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox1
             // 
@@ -297,11 +295,6 @@
             // 
             this.bDDataSetBindingSource.DataSource = this.bDDataSet;
             this.bDDataSetBindingSource.Position = 0;
-            // 
-            // bDDataSet1
-            // 
-            this.bDDataSet1.DataSetName = "BDDataSet1";
-            this.bDDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bDDataSet1BindingSource
             // 
@@ -354,47 +347,6 @@
             this.bDDataSet1BindingSource1.DataSource = this.bDDataSet1;
             this.bDDataSet1BindingSource1.Position = 0;
             // 
-            // lineBindingSource1
-            // 
-            this.lineBindingSource1.DataMember = "Line";
-            this.lineBindingSource1.DataSource = this.bDDataSet1;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // busDataGridViewTextBoxColumn
-            // 
-            this.busDataGridViewTextBoxColumn.DataPropertyName = "Bus";
-            this.busDataGridViewTextBoxColumn.HeaderText = "Bus";
-            this.busDataGridViewTextBoxColumn.Name = "busDataGridViewTextBoxColumn";
-            // 
-            // conductorDataGridViewTextBoxColumn
-            // 
-            this.conductorDataGridViewTextBoxColumn.DataPropertyName = "Conductor";
-            this.conductorDataGridViewTextBoxColumn.HeaderText = "Conductor";
-            this.conductorDataGridViewTextBoxColumn.Name = "conductorDataGridViewTextBoxColumn";
-            // 
-            // timeStartDataGridViewTextBoxColumn
-            // 
-            this.timeStartDataGridViewTextBoxColumn.DataPropertyName = "TimeStart";
-            this.timeStartDataGridViewTextBoxColumn.HeaderText = "TimeStart";
-            this.timeStartDataGridViewTextBoxColumn.Name = "timeStartDataGridViewTextBoxColumn";
-            // 
-            // timeEndDataGridViewTextBoxColumn
-            // 
-            this.timeEndDataGridViewTextBoxColumn.DataPropertyName = "TimeEnd";
-            this.timeEndDataGridViewTextBoxColumn.HeaderText = "TimeEnd";
-            this.timeEndDataGridViewTextBoxColumn.Name = "timeEndDataGridViewTextBoxColumn";
-            // 
-            // countTicketDataGridViewTextBoxColumn
-            // 
-            this.countTicketDataGridViewTextBoxColumn.DataPropertyName = "CountTicket";
-            this.countTicketDataGridViewTextBoxColumn.HeaderText = "CountTicket";
-            this.countTicketDataGridViewTextBoxColumn.Name = "countTicketDataGridViewTextBoxColumn";
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,14 +364,16 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form3";
             this.Text = "Таблица";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lineBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bDDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bDDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bDDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDDataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.busBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineBindingSource)).EndInit();
@@ -427,7 +381,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.busBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDDataSet1BindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lineBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,12 +420,6 @@
         private BDDataSet1TableAdapters.RouteTableAdapter routeTableAdapter;
         private System.Windows.Forms.BindingSource usersBindingSource;
         private BDDataSet1TableAdapters.UsersTableAdapter usersTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn busDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conductorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timeStartDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timeEndDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn countTicketDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource lineBindingSource1;
         private System.Windows.Forms.BindingSource busBindingSource1;
         private System.Windows.Forms.BindingSource bDDataSet1BindingSource1;
