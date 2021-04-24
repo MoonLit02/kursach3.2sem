@@ -14,7 +14,7 @@ namespace kursach3._2sem
     public partial class Form1 : Form
     {
 
-        string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\crax0\source\repos\kursach3.2sem\kursach3.2sem\bin\Debug\BD.mdb";
+        string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=BD.mdb";
         OleDbConnection myConnection;
         public Form1()
         {
@@ -36,7 +36,10 @@ namespace kursach3._2sem
             OleDbCommand command = new OleDbCommand(query, myConnection);
             try
             {
-                string a = command.ExecuteScalar().ToString();
+                string a="";
+                if (command.ExecuteScalar()!=null)
+                    a = command.ExecuteScalar().ToString();
+                else throw new Exception("Empty");
                 Form2 form2 =new Form2(Convert.ToInt32(a));
                 form2.Show();
             }

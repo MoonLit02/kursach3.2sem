@@ -16,7 +16,7 @@ namespace kursach3._2sem
         int count;
         string _tableName="";
         OleDbConnection myConnection;
-        string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\crax0\source\repos\kursach3.2sem\kursach3.2sem\bin\Debug\BD.mdb";
+        string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=BD.mdb";
         public Form3(string tableName)
         {
             _tableName = tableName;
@@ -38,8 +38,6 @@ namespace kursach3._2sem
             string query = "SELECT * FROM " + _tableName;
             OleDbCommand command = new OleDbCommand(query, myConnection);
             OleDbDataReader reader = command.ExecuteReader();
-            
-            
             dataGridView1.RowCount = 1;
             while (reader.Read())
             {
@@ -53,6 +51,44 @@ namespace kursach3._2sem
                 }
             }
             reader.Close();
+            switch (_tableName)
+            {
+                case "Line":
+                    dataGridView1.Columns[0].HeaderText = "ID";
+                    dataGridView1.Columns[1].HeaderText = "Bus";
+                    dataGridView1.Columns[2].HeaderText = "Conductor";
+                    dataGridView1.Columns[3].HeaderText = "TimeStart";
+                    dataGridView1.Columns[4].HeaderText = "TimeEnd";
+                    dataGridView1.Columns[5].HeaderText = "CountTicket";
+                    dataGridView1.Columns[6].HeaderText = "Route";
+                    break;
+                case "Route":
+                    dataGridView1.Columns[0].HeaderText = "ID";
+                    dataGridView1.Columns[1].HeaderText = "RouteNum";
+                    dataGridView1.Columns[2].HeaderText = "CountBus";
+                    dataGridView1.Columns[3].HeaderText = "PriceTicket";
+                    dataGridView1.Columns[4].HeaderText = "Proceeds";
+                    dataGridView1.Columns[5].HeaderText = "Trip";
+                    break;
+                case "Bus":
+                    dataGridView1.Columns[0].HeaderText = "ID";
+                    dataGridView1.Columns[1].HeaderText = "NumBus";
+                    dataGridView1.Columns[2].HeaderText = "Year";
+                    dataGridView1.Columns[3].HeaderText = "Capacity";
+                    break;
+                case "Conductor":
+                    dataGridView1.Columns[0].HeaderText = "ID";
+                    dataGridView1.Columns[1].HeaderText = "ConductorName";
+                    dataGridView1.Columns[2].HeaderText = "CountTicket";
+                    dataGridView1.Columns[3].HeaderText = "CountTrip";
+                    break;
+                case "Users":
+                    dataGridView1.Columns[0].HeaderText = "ID";
+                    dataGridView1.Columns[1].HeaderText = "Login";
+                    dataGridView1.Columns[2].HeaderText = "Password";
+                    dataGridView1.Columns[3].HeaderText = "Role";
+                    break;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,7 +108,42 @@ namespace kursach3._2sem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string query = "UPDATE "+_tableName+" SET salary = 123456 WHERE id = 3";
+            int row = dataGridView1.SelectedRows[0].Index;
+            string query = "UPDATE " + _tableName + " SET ";
+            switch (_tableName) 
+            {
+                case "Line":
+                    query += "Bus = '" + dataGridView1.Rows[row].Cells[1].Value + "', " +
+                             "Conductor = '" + dataGridView1.Rows[row].Cells[2].Value + "', " +
+                             "TimeStart = '" + dataGridView1.Rows[row].Cells[3].Value + "', " +
+                             "TimeEnd = '" + dataGridView1.Rows[row].Cells[4].Value + "', " +
+                             "CountTicket = '" + dataGridView1.Rows[row].Cells[5].Value + "'" +
+                             "Route = '" + dataGridView1.Rows[row].Cells[6].Value + "'";
+                    break;
+                case "Route":
+                    query += "RouteNum = '" + dataGridView1.Rows[row].Cells[1].Value + "', " +
+                             "CountBus = '" + dataGridView1.Rows[row].Cells[2].Value + "', " +
+                             "PriceTicket = '" + dataGridView1.Rows[row].Cells[3].Value + "', " +
+                             "Proceeds = '" + dataGridView1.Rows[row].Cells[4].Value + "', " +
+                             "Trip = '" + dataGridView1.Rows[row].Cells[5].Value + "'";
+                    break;
+                case "Bus":
+                    query += "NumBus = '" + dataGridView1.Rows[row].Cells[1].Value + "', " +
+                             "Year = '" + dataGridView1.Rows[row].Cells[2].Value + "', " +
+                             "Capacity = '" + dataGridView1.Rows[row].Cells[3].Value + "'";
+                    break;
+                case "Conductor":
+                    query += "ConductorName = '" + dataGridView1.Rows[row].Cells[1].Value + "', " +
+                             "CountTicket = '" + dataGridView1.Rows[row].Cells[2].Value + "', " +
+                             "CountTrip = '" + dataGridView1.Rows[row].Cells[3].Value + "'"; 
+                    break;
+                case "Users":
+                    query += "Login = '" + dataGridView1.Rows[row].Cells[1].Value + "', " +
+                             "Password = '" + dataGridView1.Rows[row].Cells[2].Value + "', " +
+                             "Role = '" + dataGridView1.Rows[row].Cells[3].Value + "'";
+                    break;
+            }
+            query+=" WHERE ID = "+ dataGridView1.Rows[row].Cells[0].Value;
             OleDbCommand command = new OleDbCommand(query, myConnection);
             command.ExecuteNonQuery();
         }
